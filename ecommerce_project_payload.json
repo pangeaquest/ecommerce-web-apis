@@ -1,0 +1,271 @@
+{
+  "problem_num": "P024",
+  "title": "P024 Build an Ecommerce Product Management API System",
+  "description": "Create a complete ecommerce product management system with RESTful APIs, MongoDB integration, and a web interface for testing",
+  "longDescription": "In this project, you will build a full-stack ecommerce product management system using Python Flask backend with MVC architecture, MongoDB for data persistence, and a simple HTML/CSS/JavaScript frontend for testing all API endpoints. The system will support complete CRUD operations for product management with proper validation, error handling, and a clean architectural design.",
+  "difficulty": "intermediate",
+  "category": "software-dev",
+  "requirements": {
+    "time": "1-2 weeks",
+    "skills": ["Python", "Flask", "MongoDB", "REST APIs", "MVC Architecture", "HTML/CSS/JavaScript"],
+    "prerequisites": ["Basic Python knowledge", "Understanding of web development concepts", "Familiarity with databases"]
+  },
+  "tags": ["ecommerce", "flask", "mongodb", "rest-api", "mvc", "crud", "product-management"],
+  "steps": [
+    {
+      "step": 1,
+      "description": "Set up the development environment and MongoDB",
+      "details": [
+        "Download and install MongoDB Community Edition",
+        "Start MongoDB service on default port 27017",
+        "Verify MongoDB is running with 'mongod --version'"      ],
+      "acceptanceCriteria": [
+        "MongoDB is installed and running on localhost:27017",
+        "MongoDB service starts without errors",
+        "Project directory is created and accessible",
+        "Update README.md with project details and setup instructions"
+      ]
+    },
+    {
+      "step": 2,
+      "description": "Initialize Python project and install dependencies",
+      "details": [
+        "Create and activate a Python virtual environment",
+        "Create requirements.txt with Flask, Flask-CORS, pymongo, python-dotenv",
+        "Install all dependencies using pip install -r requirements.txt",
+        "Create .env.example file with MongoDB and Flask configuration"
+      ],
+      "acceptanceCriteria": [
+        "Virtual environment is created and activated",
+        "All dependencies are installed without errors",
+        "Environment configuration template is ready",
+        "Update README.md file with setup instructions"
+      ]
+    },
+    {
+      "step": 3,
+      "description": "Create the MVC project structure",
+      "details": [
+        "Create models/ directory with __init__.py and database.py",
+        "Create views/ directory with __init__.py and product_views.py",
+        "Create controllers/ directory with __init__.py and product_controller.py",
+        "Create frontend/ directory for HTML, CSS, and JavaScript files"
+      ],
+      "acceptanceCriteria": [
+        "All directories are created with proper structure",
+        "Python packages are properly initialized with __init__.py files",
+        "Project follows MVC architectural pattern"
+      ]
+    },
+    {
+      "step": 4,
+      "description": "Implement MongoDB database connection and configuration",
+      "details": [
+        "Create Database class with singleton pattern in models/database.py",
+        "Implement connection method with error handling",
+        "Add methods for getting database and collection instances",
+        "Configure connection string and database name from environment variables"
+      ],
+      "acceptanceCriteria": [
+        "Database connection is established successfully",
+        "Singleton pattern ensures single database instance",
+        "Connection errors are properly handled and logged",
+        "Environment-based configuration works correctly"
+      ]
+    },
+    {
+      "step": 5,
+      "description": "Create the Product data model with validation",
+      "details": [
+        "Implement ProductModel class in models/product_model.py",
+        "Add product data validation for required fields (manufacturer, productDescription, price)",
+        "Implement UUID-based product ID generation",
+        "Add timestamp fields (createdAt, updatedAt) with automatic management",
+        "Create unique index on productId field"
+      ],
+      "acceptanceCriteria": [
+        "Product model validates all required fields",
+        "Price validation ensures non-negative values",
+        "Star rating validation ensures 1-5 range",
+        "Unique product IDs are generated automatically",
+        "Database indexes are created for performance"
+      ]
+    },
+    {
+      "step": 6,
+      "description": "Implement CRUD operations in the Product model",
+      "details": [
+        "Add create_product method with data validation and insertion",
+        "Implement get_product method for single product retrieval",
+        "Add update_product method with partial updates and validation",
+        "Implement delete_product method with existence checking",
+        "Add get_all_products method with pagination support"
+      ],
+      "acceptanceCriteria": [
+        "All CRUD operations work correctly with MongoDB",
+        "Data validation is enforced on create and update",
+        "Error handling covers database connection issues",
+        "Pagination works for listing products",
+        "Methods return appropriate data structures"
+      ]
+    },
+    {
+      "step": 7,
+      "description": "Create response formatting views",
+      "details": [
+        "Implement ProductViews class in views/product_views.py",
+        "Add standardized JSON response methods for success and error cases",
+        "Create specific response methods for each CRUD operation",
+        "Implement proper HTTP status codes for different scenarios",
+        "Add error response formatting with detailed messages"
+      ],
+      "acceptanceCriteria": [
+        "All responses follow consistent JSON format",
+        "HTTP status codes are appropriate for each operation",
+        "Error responses include helpful error messages",
+        "Success responses include relevant data and messages"
+      ]
+    },
+    {
+      "step": 8,
+      "description": "Implement business logic in Product controller",
+      "details": [
+        "Create ProductController class in controllers/product_controller.py",
+        "Implement request handling for all CRUD operations",
+        "Add input validation and error handling for each endpoint",
+        "Integrate model operations with view responses",
+        "Add pagination parameter handling for product listing"
+      ],
+      "acceptanceCriteria": [
+        "Controller handles all HTTP request types correctly",
+        "Input validation prevents invalid data processing",
+        "Business logic is separated from data access and presentation",
+        "Error handling provides meaningful feedback to clients"
+      ]
+    },
+    {
+      "step": 9,
+      "description": "Create the main Flask application with routing",
+      "details": [
+        "Implement app.py with Flask application factory pattern",
+        "Configure CORS for cross-origin requests",
+        "Add all product API routes (POST, GET, PUT, DELETE)",
+        "Implement health check endpoint",
+        "Add error handlers for common HTTP errors",
+        "Configure logging and environment-based settings"
+      ],
+      "acceptanceCriteria": [
+        "Flask application starts without errors",
+        "All API endpoints are accessible and functional",
+        "CORS is properly configured for frontend access",
+        "Health check endpoint returns API status",
+        "Error handlers provide consistent error responses"
+      ]
+    },
+    {
+      "step": 10,
+      "description": "Build the frontend testing interface",
+      "details": [
+        "Create index.html with forms for all API operations",
+        "Implement style.css with responsive design and clean UI",
+        "Add script.js with JavaScript functions for API calls",
+        "Create forms for adding, updating, and deleting products",
+        "Add result display areas for API responses"
+      ],
+      "acceptanceCriteria": [
+        "Frontend interface is accessible via web browser",
+        "All forms submit data correctly to API endpoints",
+        "API responses are displayed in user-friendly format",
+        "Interface is responsive and visually appealing",
+        "Error messages are clearly displayed to users"
+      ]
+    },
+    {
+      "step": 11,
+      "description": "Create test scripts and implement comprehensive testing and validation",
+      "details": [
+        "Create test_setup.py script to verify MongoDB connection and port availability",
+        "Create check_mongodb.py script to test database connectivity and operations",
+        "Create check_ports.py script to verify Flask application port availability",
+        "Test all CRUD operations through the web interface",
+        "Verify data validation works for required fields",
+        "Test error handling for invalid inputs and missing data",
+        "Validate pagination functionality for product listing",
+        "Run automated tests to ensure MongoDB connection and data persistence"
+      ],
+      "acceptanceCriteria": [
+        "Test scripts are created and execute without errors",
+        "MongoDB connectivity tests pass successfully",
+        "Port availability checks confirm no conflicts",
+        "All API endpoints work correctly through the frontend",
+        "Data validation prevents invalid product creation",
+        "Error messages are helpful and informative",
+        "Products persist correctly in MongoDB database",
+        "Pagination works for large product datasets"
+      ]
+    },
+    {
+      "step": 12,
+      "description": "Add documentation and deployment preparation",
+      "details": [
+        "Create comprehensive README.md with setup instructions",
+        "Document all API endpoints with examples",
+        "Add troubleshooting section for common issues",
+        "Include product data schema documentation",
+        "Provide curl examples for API testing"
+      ],
+      "acceptanceCriteria": [
+        "README includes complete setup and usage instructions",
+        "API documentation is clear and includes examples",
+        "Troubleshooting guide helps resolve common issues",
+        "Project is ready for deployment or sharing"
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "type": "documentation",
+      "url": "https://flask.palletsprojects.com/",
+      "description": "Flask Official Documentation"
+    },
+    {
+      "type": "documentation",
+      "url": "https://pymongo.readthedocs.io/",
+      "description": "PyMongo Documentation"
+    },
+    {
+      "type": "tutorial",
+      "url": "https://www.mongodb.com/docs/manual/installation/",
+      "description": "MongoDB Installation Guide"
+    },
+    {
+      "type": "article",
+      "url": "https://flask.palletsprojects.com/en/2.3.x/patterns/mvc/",
+      "description": "MVC Pattern in Flask"
+    },
+    {
+      "type": "documentation",
+      "url": "https://flask-cors.readthedocs.io/",
+      "description": "Flask-CORS Documentation"
+    }
+  ],
+  "metadata": {
+    "created": "2024-06-02",
+    "author": "Augment Agent",
+    "lastUpdated": "2024-06-02",
+    "gitRepo": "https://github.com/example/ecommerce-web-apis"
+  },
+  "downloadableItems": [
+    "Project structure template (ZIP)",
+    "MongoDB schema documentation (PDF)",
+    "API endpoint reference (Markdown)",
+    "Sample product data (JSON)"
+  ],
+  "preparationSteps": [
+    "Install Python 3.7+ and pip package manager",
+    "Download and install MongoDB Community Edition",
+    "Install a code editor like VS Code or PyCharm",
+    "Familiarize yourself with REST API concepts and HTTP methods",
+    "Basic understanding of MVC architectural pattern"
+  ]
+}
